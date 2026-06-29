@@ -21,6 +21,14 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 48);
+}
+
 function nextTaskId() {
   ensureDir(tasksDir);
   const numbers = fs
@@ -32,75 +40,77 @@ function nextTaskId() {
   return `TASK-${String(next).padStart(3, "0")}`;
 }
 
-function taskTemplate(taskId, title, timestamp) {
-  return `# ${taskId}：${title}
+function taskTemplate(taskId, title, timestamp, branchName) {
+  return `# ${taskId}: ${title}
 
-## 基本信息
+## Basic Information
 
-- 状态：READY
-- 优先级：P1
-- 创建时间：${timestamp}
-- 负责人：Executor Agent
-- 验收人：Reviewer Agent
-- 目标分支：agent/executor
+- Status: READY
+- Priority: P1
+- Created At: ${timestamp}
+- Owner: Executor Agent
+- Reviewer: Reviewer Agent
+- Target Branch: ${branchName}
+- Pull Request: TBD
 
-## 背景
+## Background
 
-说明为什么需要这个任务。
+Explain why this task is needed.
 
-## 目标
+## Goal
 
-说明任务完成后应该达到什么结果。
+Explain the concrete outcome expected after this task is complete.
 
-## 前置条件
+## Preconditions
 
-说明任务依赖的文档、代码、接口或其他任务。
+List required documents, code, interfaces, or previous tasks.
 
-## 工作范围
+## Scope
 
-- 列出本任务必须完成的内容。
+- List the required work for this task.
 
-## 非目标
+## Non-Goals
 
-- 明确本任务不处理哪些内容。
+- Clearly state what this task will not handle.
 
-## 涉及文件
+## Expected Files
 
-- 列出预计修改的目录和文件。
+- List expected directories and files to modify.
 
-## 实现要求
+## Implementation Requirements
 
-写出明确的技术、功能和设计要求。
+Write clear technical, functional, and design requirements.
 
-## 验收标准
+## Acceptance Criteria
 
-- [ ] 条件一
-- [ ] 条件二
-- [ ] 条件三
+- [ ] Criterion one
+- [ ] Criterion two
+- [ ] Criterion three
 
-## 测试要求
+## Test Requirements
 
-列出必须执行的命令、测试和页面尺寸。
+List required commands, tests, and viewport checks.
 
-## 交付物
+## Deliverables
 
-- 源代码
-- 测试
+- Source code or workflow files
+- Tests or validation commands
 - Git commit
-- 执行报告
+- Execution report
+- GitHub PR link, unless the task is documentation-only and Manager explicitly waives it
 
-## 风险
+## Risks
 
-记录潜在风险、兼容问题或边界情况。
+Record potential risks, compatibility issues, or edge cases.
 
-## 当前状态
+## Current Status
 
 READY
 `;
 }
 
 function updateTaskBoard(taskId, title) {
-  const entry = `- [ ] ${taskId}：${title}（READY）`;
+  const entry = `- [ ] ${taskId}: ${title} (READY)`;
   if (!fs.existsSync(taskBoardPath)) {
     fs.writeFileSync(
       taskBoardPath,
@@ -122,20 +132,21 @@ function updateTaskBoard(taskId, title) {
   fs.writeFileSync(taskBoardPath, board, "utf8");
 }
 
-function maybeSetCurrentTask(taskId, title, timestamp) {
+function maybeSetCurrentTask(taskId, title, timestamp, branchName) {
   const current = readJson(currentTaskPath, {
     taskId: null,
     status: "BACKLOG"
   });
-  if (current.taskId) return false;
+  if (current.taskId && !["PASSED", "CANCELLED"].includes(current.status)) return false;
   const next = {
     taskId,
     title,
     status: "READY",
     owner: "Executor Agent",
     reviewer: "Reviewer Agent",
-    branch: "agent/executor",
+    branch: branchName,
     worktree: "../project-executor",
+    pullRequest: null,
     executionReport: `.agent/reports/${taskId}-execution.md`,
     reviewReport: `.agent/reports/${taskId}-review.md`,
     createdAt: timestamp,
@@ -147,13 +158,14 @@ function maybeSetCurrentTask(taskId, title, timestamp) {
 
 const title = process.argv.slice(2).join(" ").trim();
 if (!title) {
-  console.error('Usage: node scripts/create-task.js "任务名称"');
+  console.error('Usage: node scripts/create-task.js "Task title"');
   process.exit(1);
 }
 
 ensureDir(tasksDir);
 const taskId = nextTaskId();
 const timestamp = new Date().toISOString();
+const branchName = `agent/${taskId}-${slugify(title) || "task"}`;
 const taskPath = path.join(tasksDir, `${taskId}.md`);
 
 if (fs.existsSync(taskPath)) {
@@ -161,11 +173,12 @@ if (fs.existsSync(taskPath)) {
   process.exit(1);
 }
 
-fs.writeFileSync(taskPath, taskTemplate(taskId, title, timestamp), "utf8");
+fs.writeFileSync(taskPath, taskTemplate(taskId, title, timestamp, branchName), "utf8");
 updateTaskBoard(taskId, title);
-const becameCurrent = maybeSetCurrentTask(taskId, title, timestamp);
+const becameCurrent = maybeSetCurrentTask(taskId, title, timestamp, branchName);
 
 console.log(`Created ${path.relative(root, taskPath)}`);
 console.log(`Task ID: ${taskId}`);
-console.log(`Current task: ${becameCurrent ? "set" : "unchanged; another current task already exists"}`);
+console.log(`Target branch: ${branchName}`);
+console.log(`Current task: ${becameCurrent ? "set" : "unchanged; another current task is still active"}`);
 console.log("Next: edit the task file so scope, non-goals, acceptance criteria, and tests are concrete.");

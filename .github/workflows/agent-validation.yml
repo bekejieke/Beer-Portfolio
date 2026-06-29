@@ -1,0 +1,30 @@
+name: Agent Workflow Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  workflow-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate agent workflow
+        run: node scripts/validate-workflow.js
+
+      - name: Validate current task when present
+        shell: bash
+        run: |
+          TASK_ID="$(node -e "const fs=require('fs'); const p='.agent/current-task.json'; if(!fs.existsSync(p)) process.exit(0); const current=JSON.parse(fs.readFileSync(p,'utf8')); if(current.taskId) process.stdout.write(current.taskId);")"
+          if [ -n "$TASK_ID" ]; then
+            node scripts/validate-task.js ".agent/tasks/${TASK_ID}.md"
+          fi

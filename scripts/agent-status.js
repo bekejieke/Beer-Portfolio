@@ -77,6 +77,7 @@ console.log(`Owner: ${current.owner || "none"}`);
 console.log(`Reviewer: ${current.reviewer || "none"}`);
 console.log(`Branch: ${current.branch || "none"}`);
 console.log(`Worktree: ${current.worktree || "none"}`);
+console.log(`Pull request: ${current.pullRequest || "none"}`);
 console.log("");
 console.log("Session IDs");
 console.log("-----------");

@@ -1,13 +1,14 @@
 {
-  "taskId": "TASK-001-R1",
-  "title": "修复 Session ID 暴露、校验不足与 Git 审计问题",
-  "status": "EXECUTED",
-  "owner": "Executor Agent",
+  "taskId": "TASK-002",
+  "title": "Optimize GitHub PR collaboration workflow",
+  "status": "PASSED",
+  "owner": "Manager Agent",
   "reviewer": "Reviewer Agent",
-  "branch": "main",
+  "branch": "agent/TASK-002-optimize-github-pr-collaboration-workflow",
   "worktree": "E:\\codex code",
-  "executionReport": ".agent/reports/TASK-001-R1-execution.md",
-  "reviewReport": ".agent/reports/TASK-001-R1-review.md",
-  "createdAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-06-29T00:00:00.000Z"
+  "pullRequest": "https://github.com/bekejieke/Beer-Portfolio/pull/1",
+  "executionReport": ".agent/reports/TASK-002-execution.md",
+  "reviewReport": ".agent/reports/TASK-002-review.md",
+  "createdAt": "2026-06-29T21:20:00.000+08:00",
+  "updatedAt": "2026-06-29T22:36:20.0116631+08:00"
 }

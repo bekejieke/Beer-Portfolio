@@ -2,7 +2,7 @@
 
 ## Current Task
 
-- [ ] TASK-001-R1：修复 Session ID 暴露、校验不足与 Git 审计问题（EXECUTED，等待 Reviewer 重新验收）
+- [x] TASK-002: Optimize GitHub PR collaboration workflow (PASSED, ready to merge PR #1)
 
 ## Backlog
 
@@ -14,20 +14,20 @@ No tasks in progress.
 
 ## Executed
 
-- [ ] TASK-001：搭建 Codex 三角色多 Agent 工作流基础设施（Reviewer: FAIL）
-- [ ] TASK-001-R1：修复 Session ID 暴露、校验不足与 Git 审计问题
+No tasks executed and awaiting review handoff.
 
 ## Reviewing
 
-No tasks under review.
+No tasks in review.
 
 ## Passed
 
-No passed tasks yet.
+- [x] TASK-001-R1: Fix Session ID exposure, workflow validation, and Git auditability (PASS_WITH_NOTES)
+- [x] TASK-002: Optimize GitHub PR collaboration workflow (PASS_WITH_NOTES)
 
 ## Failed / Rework
 
-- [ ] TASK-001：FAIL，返工任务 TASK-001-R1
+- [x] TASK-001: Initial workflow setup failed review; resolved by TASK-001-R1
 
 ## Blocked
 

@@ -5,6 +5,7 @@
     "agent:create-task": "node scripts/create-task.js",
     "agent:validate-task": "node scripts/validate-task.js",
     "agent:validate": "node scripts/validate-workflow.js",
-    "agent:setup-worktrees": "node scripts/setup-worktrees.js"
+    "agent:setup-worktrees": "node scripts/setup-worktrees.js",
+    "agent:github-pr": "node scripts/agent-github-pr.js"
   }
 }
