@@ -68,6 +68,7 @@ and test commands should be added after the Next.js app is scaffolded.
 - `node scripts/validate-task.js .agent/tasks/TASK-002.md`
 - `node scripts/agent-status.js`
 - `npm run agent:github-pr -- --no-push`
+- `npm run agent:github-pr`
 - `rg -n "019f134f|019f1351|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" -g "!node_modules" -g "!.git" -g "!.agent/sessions.local.json" .`
 - `git check-ignore -v .agent/sessions.local.json`
 - `git diff --stat`
@@ -92,6 +93,11 @@ and test commands should be added after the Next.js app is scaffolded.
   Result: refused from protected/base branch `main`.
   Passed: yes, expected safety failure
 
+- Command: `npm run agent:github-pr`
+  Result: pushed `agent/TASK-002-optimize-github-pr-collaboration-workflow`
+  and created `https://github.com/bekejieke/Beer-Portfolio/pull/1`.
+  Passed: yes
+
 - Command: Session ID leak scan with `rg`
   Result: no tracked/public matches outside `.agent/sessions.local.json`.
   Passed: yes
@@ -109,8 +115,6 @@ and test commands should be added after the Next.js app is scaffolded.
 
 ## Known Limitations
 
-- This task did not open a real PR because it was performed in the management
-  workspace on `main`; the new PR workflow is intended for the next task branch.
 - GitHub Actions does not yet run application lint/build/test commands because
   the frontend app is not scaffolded yet.
 
@@ -121,7 +125,10 @@ and test commands should be added after the Next.js app is scaffolded.
 
 ## Commit Hash
 
-TBD after commit.
+- `769b333` docs(TASK-002): optimize GitHub PR workflow
+- `0cd9ea3` fix(TASK-002): handle inherited push output
+
+Pull request: https://github.com/bekejieke/Beer-Portfolio/pull/1
 
 ## Reviewer Focus
 

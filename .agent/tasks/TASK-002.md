@@ -8,7 +8,7 @@
 - Owner: Executor Agent
 - Reviewer: Reviewer Agent
 - Target Branch: agent/TASK-002-optimize-github-pr-collaboration-workflow
-- Pull Request: TBD
+- Pull Request: https://github.com/bekejieke/Beer-Portfolio/pull/1
 
 ## Background
 

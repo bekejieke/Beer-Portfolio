@@ -6,13 +6,12 @@ TASK-002
 
 ## Commit Hash
 
-TBD after commit.
+- `769b333` docs(TASK-002): optimize GitHub PR workflow
+- `0cd9ea3` fix(TASK-002): handle inherited push output
 
 ## Pull Request
 
-Not opened for this infrastructure update because the current repository is
-still using `main` as the management workspace. The new `agent:github-pr` script
-is intended for the next task branch after Reviewer accepts this workflow update.
+https://github.com/bekejieke/Beer-Portfolio/pull/1
 
 ## Execution Report Path
 
