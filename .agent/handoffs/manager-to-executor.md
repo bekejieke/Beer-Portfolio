@@ -10,7 +10,7 @@ TASK-002
 
 ## Current Status
 
-EXECUTED
+PASSED
 
 ## Execution Branch
 
@@ -26,12 +26,15 @@ E:\codex code
 - .agent/WORKFLOW.md
 - .agent/tasks/TASK-002.md
 - .agent/reports/TASK-001-R1-review.md
+- .agent/reports/TASK-002-execution.md
+- .agent/reports/TASK-002-review.md, once it exists
 
 ## Do Not Modify
 
 - Business UI or application features.
 - `.agent/sessions.local.json`
 - Real Codex Session IDs.
+- TASK-003 business implementation until Manager creates the formal task after TASK-002 review and merge.
 
 ## Test Requirements
 
@@ -48,3 +51,9 @@ E:\codex code
 - GitHub PR template and Actions workflow.
 - Execution report.
 - Commit after validation.
+
+## Manager Note
+
+TASK-002 received Reviewer `PASS_WITH_NOTES`. Manager is reconciling the PR #1
+merge. Executor has no TASK-003 assignment until Manager creates the formal
+TASK-003 task file and handoff after the merge.

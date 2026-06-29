@@ -2,7 +2,7 @@
 
 ## Basic Information
 
-- Status: EXECUTED
+- Status: PASSED
 - Priority: P0
 - Created At: 2026-06-29T21:20:00.000+08:00
 - Owner: Executor Agent
@@ -116,4 +116,4 @@ merge decision.
 
 ## Current Status
 
-EXECUTED
+PASSED
