@@ -15,3 +15,4 @@
 - GitHub is now the remote collaboration gate: future implementation tasks should use `agent/TASK-XXX-slug` branches, draft PRs, GitHub Actions workflow validation, independent Reviewer checks, and Manager-only merge decisions.
 - TASK-002 has execution report and Draft PR #1. As of 2026-06-29T22:29:19+08:00, Manager advanced TASK-002 only from `EXECUTED` to `REVIEWING`; PR #1 must not be merged and TASK-003 must not be created until Reviewer returns `PASS` or `PASS_WITH_NOTES`.
 - TASK-002 received Reviewer `PASS_WITH_NOTES` on 2026-06-29. Manager may merge PR #1 after reconciling review/state files and confirming GitHub Actions remain green.
+- PR #1 was merged into `main` at merge commit `fbd2122a37da0ed399d46cc1bbd17bcb19d3b91e`. TASK-003 is the first P0 MVP implementation task and is limited to Next.js App Router + TypeScript + Tailwind scaffolding, base directories, responsive homepage shell, metadata, and 404 placeholder.

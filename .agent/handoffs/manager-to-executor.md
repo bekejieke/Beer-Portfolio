@@ -2,58 +2,77 @@
 
 ## Current Task ID
 
-TASK-002
+TASK-003
 
 ## Task File Path
 
-.agent/tasks/TASK-002.md
+.agent/tasks/TASK-003.md
 
 ## Current Status
 
-PASSED
+READY
 
 ## Execution Branch
 
-agent/TASK-002-optimize-github-pr-collaboration-workflow
+agent/TASK-003-scaffold-nextjs-portfolio-app-shell
 
 ## Execution Worktree
 
 E:\codex code
 
+## Product Direction
+
+Beer Portfolio is entering P0 MVP implementation. The site is a content-first
+developer portfolio for internship, job search, and personal branding. It
+should emphasize AI product practice, WeChat miniprograms, web development,
+product design, testing evidence, resume access, and contact paths. Keep the
+visual direction dark, restrained, and evidence-oriented; do not copy any
+reference site.
+
 ## Must Read
 
 - AGENTS.md
 - .agent/WORKFLOW.md
-- .agent/tasks/TASK-002.md
-- .agent/reports/TASK-001-R1-review.md
-- .agent/reports/TASK-002-execution.md
-- .agent/reports/TASK-002-review.md, once it exists
+- docs/PRD.md
+- docs/DESIGN.md
+- docs/ACCEPTANCE.md
+- .agent/current-task.json
+- .agent/task-board.md
+- .agent/tasks/TASK-003.md
+- .agent/reports/TASK-002-review.md
 
 ## Do Not Modify
 
-- Business UI or application features.
+- Work outside TASK-003 scope.
 - `.agent/sessions.local.json`
 - Real Codex Session IDs.
-- TASK-003 business implementation until Manager creates the formal task after TASK-002 review and merge.
+- Full project detail pages, animation system, CMS, analytics, deployment, or
+  final portfolio content.
+- `main` directly.
 
 ## Test Requirements
 
-- `npm run agent:validate`
-- `node scripts/validate-task.js .agent/tasks/TASK-002.md`
-- `node scripts/agent-status.js`
-- `npm run agent:github-pr -- --no-push`
-- `git status --short --branch`
-- `git diff --stat`
+- Install dependencies with the selected package manager.
+- Run the production build command.
+- Run lint/type/static checks available in the scaffold.
+- Run `npm run agent:validate`.
+- Start the local dev server and manually verify desktop and mobile layouts.
+- Check for horizontal overflow.
+- Run a tracked secret/session scan.
 
 ## Deliverables
 
-- Workflow scripts and docs.
-- GitHub PR template and Actions workflow.
-- Execution report.
-- Commit after validation.
+- Next.js App Router project shell.
+- Responsive homepage shell.
+- Base theme/global styles.
+- Basic metadata and 404 placeholder.
+- Required directories and placeholders.
+- Git commit on `agent/TASK-003-scaffold-nextjs-portfolio-app-shell`.
+- GitHub draft PR for TASK-003.
+- `.agent/reports/TASK-003-execution.md`.
 
 ## Manager Note
 
-TASK-002 received Reviewer `PASS_WITH_NOTES`. Manager is reconciling the PR #1
-merge. Executor has no TASK-003 assignment until Manager creates the formal
-TASK-003 task file and handoff after the merge.
+TASK-002 received Reviewer `PASS_WITH_NOTES` and PR #1 was merged into `main`.
+TASK-003 is now the first P0 business implementation task. Keep it deliberately
+small: scaffold, responsive shell, validation, and PR handoff only.

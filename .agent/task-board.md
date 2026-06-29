@@ -2,7 +2,7 @@
 
 ## Current Task
 
-- [x] TASK-002: Optimize GitHub PR collaboration workflow (PASSED, ready to merge PR #1)
+- [ ] TASK-003: Scaffold Next.js portfolio app shell (READY, assigned to Executor)
 
 ## Backlog
 
