@@ -8,11 +8,12 @@ const root = process.cwd();
 const currentTaskPath = path.join(root, ".agent", "current-task.json");
 
 function run(command, args, options = {}) {
-  return execFileSync(command, args, {
+  const output = execFileSync(command, args, {
     cwd: root,
     encoding: "utf8",
     stdio: options.stdio || ["ignore", "pipe", "pipe"]
-  }).trim();
+  });
+  return typeof output === "string" ? output.trim() : "";
 }
 
 function tryRun(command, args) {
