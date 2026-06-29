@@ -1,0 +1,20 @@
+{
+  "name": "Beer Portfolio",
+  "type": "portfolio-workflow",
+  "primaryWorkflow": "multi-agent-codex",
+  "statusValues": [
+    "BACKLOG",
+    "READY",
+    "IN_PROGRESS",
+    "EXECUTED",
+    "REVIEWING",
+    "PASSED",
+    "FAILED",
+    "REWORK",
+    "BLOCKED",
+    "CANCELLED"
+  ],
+  "roles": ["manager", "executor", "reviewer"],
+  "singleCurrentTask": true,
+  "updatedAt": "2026-06-29T00:00:00.000Z"
+}

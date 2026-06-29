@@ -1,0 +1,40 @@
+# Existing unrelated workspace folders
+/$dest/
+/.agents/
+/college-thesis-reviser-portable-skill/
+/hua-ge-quan/
+/maid-chan-pet-run/
+/miku-maid-pet-run/
+/miku-miniprogram/
+/money_journey/
+/q版女仆三视图/
+/server/
+/thesis_work/
+/word/
+
+# Existing unrelated local files
+/github-connector-readonly-diagnostic-*.txt
+/project.config.json
+/project.private.config.json
+/*.zip
+/*.7z
+
+# Dependencies and build outputs
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+.agent/sessions.local.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

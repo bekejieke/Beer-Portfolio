@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "agent:status": "node scripts/agent-status.js",
+    "agent:create-task": "node scripts/create-task.js",
+    "agent:validate-task": "node scripts/validate-task.js",
+    "agent:validate": "node scripts/validate-workflow.js",
+    "agent:setup-worktrees": "node scripts/setup-worktrees.js"
+  }
+}

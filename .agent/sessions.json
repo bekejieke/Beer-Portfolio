@@ -1,0 +1,21 @@
+{
+  "manager": {
+    "sessionId": "",
+    "role": "Manager Agent",
+    "status": "idle",
+    "lastTaskId": null
+  },
+  "executor": {
+    "sessionId": "",
+    "role": "Executor Agent",
+    "status": "idle",
+    "lastTaskId": null
+  },
+  "reviewer": {
+    "sessionId": "",
+    "role": "Reviewer Agent",
+    "status": "idle",
+    "lastTaskId": null
+  },
+  "updatedAt": ""
+}
