@@ -1,52 +1,50 @@
 # Manager To Executor Handoff
 
-## 当前任务编号
+## Current Task ID
 
-TASK-001
+TASK-002
 
-## 任务文件路径
+## Task File Path
 
-.agent/tasks/TASK-001.md
+.agent/tasks/TASK-002.md
 
-## 当前状态
+## Current Status
 
 EXECUTED
 
-## 执行分支
+## Execution Branch
 
-agent/executor
+agent/TASK-002-optimize-github-pr-collaboration-workflow
 
-## 执行工作区
+## Execution Worktree
 
-../project-executor
+E:\codex code
 
-## 必须阅读的文件
+## Must Read
 
 - AGENTS.md
-- docs/PRD.md
-- docs/DESIGN.md
-- docs/ACCEPTANCE.md
-- .agent/current-task.json
-- .agent/tasks/TASK-001.md
+- .agent/WORKFLOW.md
+- .agent/tasks/TASK-002.md
+- .agent/reports/TASK-001-R1-review.md
 
-## 禁止修改范围
+## Do Not Modify
 
-- 不得修改验收报告。
-- 不得修改 Reviewer 交接结论。
-- 不得处理当前任务单之外的业务功能。
-- 不得初始化 Git、删除文件、reset 或推送远程仓库。
+- Business UI or application features.
+- `.agent/sessions.local.json`
+- Real Codex Session IDs.
 
-## 测试要求
+## Test Requirements
 
+- `npm run agent:validate`
+- `node scripts/validate-task.js .agent/tasks/TASK-002.md`
 - `node scripts/agent-status.js`
-- `node scripts/validate-task.js .agent/tasks/TASK-001.md`
-- `node scripts/validate-workflow.js`
-- `node scripts/setup-worktrees.js`
+- `npm run agent:github-pr -- --no-push`
+- `git status --short --branch`
+- `git diff --stat`
 
-## 交付要求
+## Deliverables
 
-- 完成工作流基础设施文件。
-- 运行测试并记录真实结果。
-- 检查 Git 状态。
-- 写入 `.agent/reports/TASK-001-execution.md`。
-- 更新 `.agent/handoffs/executor-to-reviewer.md`。
+- Workflow scripts and docs.
+- GitHub PR template and Actions workflow.
+- Execution report.
+- Commit after validation.

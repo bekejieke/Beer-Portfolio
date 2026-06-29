@@ -1,33 +1,47 @@
 # Executor To Reviewer Handoff
 
-## 当前任务编号
+## Current Task ID
 
-TASK-001-R1
+TASK-002
 
 ## Commit Hash
 
-待提交后填写。
+TBD after commit.
 
-## 执行报告路径
+## Pull Request
 
-.agent/reports/TASK-001-R1-execution.md
+Not opened for this infrastructure update because the current repository is
+still using `main` as the management workspace. The new `agent:github-pr` script
+is intended for the next task branch after Reviewer accepts this workflow update.
 
-## 修改摘要
+## Execution Report Path
 
-已修复 TASK-001 Reviewer 指出的 Session ID 暴露与校验不足问题，并将真实会话 ID 移入本地忽略文件 `.agent/sessions.local.json`。
+.agent/reports/TASK-002-execution.md
 
-## 测试结果
+## Change Summary
 
-待最终回归命令运行后以执行报告为准。
+Implemented the GitHub PR collaboration gate:
 
-## 已知限制
+- Added `scripts/agent-github-pr.js`.
+- Added GitHub PR template.
+- Added GitHub Actions workflow validation.
+- Fixed `scripts/create-task.js` task template and branch naming.
+- Updated workflow docs, README, package scripts, validation script, and status output.
 
-- 推送前必须确保 Git 历史中不包含真实 Session ID。
+## Test Results
 
-## 验收重点
+See `.agent/reports/TASK-002-execution.md`.
 
-- `.agent/sessions.json` 是否保持空模板。
-- `.agent/sessions.local.json` 是否被忽略且未跟踪。
-- `agent-status.js` 是否能读取本地 sessions。
-- `validate-workflow.js` 是否能阻止真实 Session ID 进入 tracked sessions。
-- Git commit 和远端历史是否干净。
+## Known Limitations
+
+- GitHub Actions currently validates the agent workflow only. Frontend build,
+  lint, and test commands should be added after the web app stack is scaffolded.
+- Draft PR creation depends on `gh` authentication when the GitHub connector is
+  unavailable.
+
+## Reviewer Focus
+
+- Confirm `agent-github-pr.js` refuses PR creation from `main`.
+- Confirm workflow validation includes the new GitHub files and PR script.
+- Confirm task creation now produces valid Markdown and a stable task branch.
+- Confirm no real Codex Session IDs are tracked.

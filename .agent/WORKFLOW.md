@@ -123,6 +123,46 @@ agent/reviewer
 node scripts/setup-worktrees.js
 ```
 
+## GitHub PR Collaboration Flow
+
+GitHub is the remote collaboration gate. Local Git remains the source of actual
+code changes, but every implementation task should move through a task branch
+and a draft pull request before Manager merges it.
+
+Recommended flow:
+
+```text
+Manager creates TASK-XXX
+Executor works on agent/TASK-XXX-slug
+Executor commits and runs validation
+Executor runs npm run agent:github-pr
+Reviewer reviews the pushed PR, commit, diff, and reports
+Manager merges only after PASS or PASS_WITH_NOTES
+```
+
+Executor PR command:
+
+```bash
+npm run agent:github-pr
+```
+
+Useful variants:
+
+```bash
+node scripts/agent-github-pr.js --base main
+node scripts/agent-github-pr.js --ready
+node scripts/agent-github-pr.js --no-push
+```
+
+Rules:
+
+- Do not open PRs from `main` or `master`.
+- Do not open PRs with uncommitted local changes.
+- Keep one PR aligned with one task ID.
+- Use Draft PRs until Reviewer has completed independent validation.
+- GitHub Actions must pass before Manager merge.
+- Manager, not Executor, decides whether a reviewed PR can be merged.
+
 如果已创建 `package.json` 脚本，也可以运行：
 
 ```bash

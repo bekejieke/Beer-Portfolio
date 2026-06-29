@@ -153,3 +153,16 @@ REVIEWING -> FAILED -> REWORK -> IN_PROGRESS -> EXECUTED -> REVIEWING
 - 自动推送远程仓库。
 - 自动合并业务分支。
 - 将 API Key 或账号凭据写入仓库。
+
+## 13. GitHub PR Gate
+
+- Local Git stores the real implementation history; GitHub stores remote review,
+  CI status, and merge decisions.
+- Each implementation task should use one branch named `agent/TASK-XXX-slug`.
+- Executor should commit locally, run required validation, then create or reuse a
+  draft PR with `npm run agent:github-pr`.
+- Reviewer must inspect the pushed PR, target commit, and Git diff independently.
+- Manager may merge only after Reviewer returns `PASS` or `PASS_WITH_NOTES`.
+- Executor must not merge its own PR or mark the task as passed.
+- GitHub Actions must pass before Manager merge, unless Manager records an
+  explicit exception in `.agent/decisions.md`.
