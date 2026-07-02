@@ -1,11 +1,30 @@
 {
   "private": true,
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint src next.config.ts --max-warnings=0",
+    "typecheck": "tsc --noEmit --project tsconfig.typecheck.json",
     "agent:status": "node scripts/agent-status.js",
     "agent:create-task": "node scripts/create-task.js",
     "agent:validate-task": "node scripts/validate-task.js",
     "agent:validate": "node scripts/validate-workflow.js",
     "agent:setup-worktrees": "node scripts/setup-worktrees.js",
     "agent:github-pr": "node scripts/agent-github-pr.js"
+  },
+  "dependencies": {
+    "next": "16.2.10",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.2",
+    "@types/node": "26.1.0",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "4.3.2",
+    "typescript": "6.0.3"
   }
 }

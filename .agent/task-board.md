@@ -2,7 +2,7 @@
 
 ## Current Task
 
-- [ ] TASK-003: Scaffold Next.js portfolio app shell (READY, assigned to Executor)
+- [ ] TASK-003: Scaffold Next.js portfolio app shell (EXECUTED, awaiting Reviewer)
 
 ## Backlog
 
@@ -14,7 +14,7 @@ No tasks in progress.
 
 ## Executed
 
-No tasks executed and awaiting review handoff.
+- [ ] TASK-003: Scaffold Next.js portfolio app shell
 
 ## Reviewing
 
