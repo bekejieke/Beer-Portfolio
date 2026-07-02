@@ -2,7 +2,7 @@
 
 ## Current Task
 
-- [x] TASK-002: Optimize GitHub PR collaboration workflow (PASSED, ready to merge PR #1)
+- [x] TASK-003: Scaffold Next.js portfolio app shell (PASSED, ready to merge PR #2)
 
 ## Backlog
 
@@ -24,6 +24,7 @@ No tasks in review.
 
 - [x] TASK-001-R1: Fix Session ID exposure, workflow validation, and Git auditability (PASS_WITH_NOTES)
 - [x] TASK-002: Optimize GitHub PR collaboration workflow (PASS_WITH_NOTES)
+- [x] TASK-003: Scaffold Next.js portfolio app shell (PASS_WITH_NOTES)
 
 ## Failed / Rework
 

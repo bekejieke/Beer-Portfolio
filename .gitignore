@@ -2,6 +2,7 @@
 /$dest/
 /.agents/
 /college-thesis-reviser-portable-skill/
+/cor v1/
 /hua-ge-quan/
 /maid-chan-pet-run/
 /miku-maid-pet-run/
@@ -26,6 +27,9 @@ out/
 dist/
 build/
 coverage/
+*.tsbuildinfo
+.agent/reports/*.log
+.agent/reports/*.png
 
 # Local environment files
 .env
