@@ -2,7 +2,7 @@
 
 ## Basic Information
 
-- Status: EXECUTED
+- Status: PASSED
 - Priority: P0
 - Created At: 2026-06-29T22:49:02.1558571+08:00
 - Owner: Executor Agent
@@ -151,4 +151,4 @@ normally touch or add:
 
 ## Current Status
 
-EXECUTED
+PASSED
