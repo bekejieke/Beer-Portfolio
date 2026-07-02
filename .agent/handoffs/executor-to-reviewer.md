@@ -6,11 +6,11 @@ TASK-003
 
 ## Commit Hash
 
-TBD after commit.
+`7d6d57d` feat(TASK-003): scaffold Next.js portfolio shell
 
 ## Pull Request
 
-TBD after `npm run agent:github-pr`.
+https://github.com/bekejieke/Beer-Portfolio/pull/2
 
 ## Execution Report Path
 
